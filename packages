@@ -1,0 +1,3 @@
+#!/bin/zsh
+# קיצור: הצג את החבילות הממתינות לאיסוף
+exec python3 "$(dirname "$0")/package_tracker.py" "$@"
