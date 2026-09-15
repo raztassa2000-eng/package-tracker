@@ -6,6 +6,12 @@ as a clean, always-on **desktop widget** — courier, pickup location, time left
 to collect, pickup code, and tracking number. Mark a parcel **collected** with
 one click and it disappears for good.
 
+<p align="center">
+  <img src="screenshot.png" alt="Package Tracker desktop widget with two sample parcels" width="360">
+</p>
+
+<p align="center"><sub>The desktop widget (sample data). Red = 2 days or less left.</sub></p>
+
 Everything runs **locally on your Mac**. No message ever leaves your machine —
 there's no server, no account, and no network calls.
 
