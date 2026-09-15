@@ -17,6 +17,7 @@ from datetime import datetime, timedelta, timezone
 DB = os.path.expanduser("~/Library/Messages/chat.db")
 APPLE_EPOCH = 978307200  # 2001-01-01 in unix seconds
 MIN_DATE = datetime(2026, 1, 1)  # ignore anything before 2026
+STALE_DAYS = 3  # a parcel uncollected for more than this many days turns red
 COLLECTED_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "collected.txt")
 
 def parcel_key(courier, received, ident):
@@ -356,6 +357,12 @@ def dedupe(results):
                 else:
                     r["time_left"] = f"{days_left} ימים" if days_left >= 1 else "היום"
                     r["urgency"] = "soon" if days_left <= 2 else "ok"
+        # sitting uncollected for more than STALE_DAYS → turn red, even with no deadline
+        age = (now - r["_dt"]).days
+        if r["urgency"] != "expired" and age > STALE_DAYS:
+            r["urgency"] = "soon"
+            if not r["time_left"]:
+                r["time_left"] = f"יושב {age} ימים"
     merged.sort(key=lambda r: r["_dt"], reverse=True)
     return merged
 

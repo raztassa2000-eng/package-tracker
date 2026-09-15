@@ -163,6 +163,11 @@ in-store food counters, bureaucratic notices). Multiple updates about the same
 parcel are merged by order/shipment id, and then by courier + location within a
 30-day window, keeping the most detailed card.
 
+A parcel you haven't collected **more than 3 days** after the message arrives
+turns **red** on its own (shown as "יושב N ימים"), even when the courier never
+stated a deadline — so nothing quietly rots at the branch. Change the threshold
+via `STALE_DAYS` in `package_tracker.py`.
+
 Only messages from **2026-01-01 onward** are considered (`MIN_DATE`).
 
 ---
