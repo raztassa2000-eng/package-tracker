@@ -9,6 +9,11 @@ one click and it disappears for good.
 Everything runs **locally on your Mac**. No message ever leaves your machine —
 there's no server, no account, and no network calls.
 
+> ⚠️ **macOS only.** It reads the local Messages database, so it needs a Mac
+> **with your iPhone messages synced to it** (iMessage + Text Message
+> Forwarding — see [Step 1](#step-1--sync-your-iphone-messages-to-the-mac)).
+> There is no iPhone/Android app — Apple does not let apps read your SMS.
+
 ---
 
 ## What it does
